@@ -77,10 +77,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddOns\SeedableAttribute.cs" />
+    <Compile Include="Bootstrapping\EngineBootStrapper.cs" />
+    <Compile Include="DataFactory\DataStore.cs" />
+    <Compile Include="DataFactory\LookupsData.cs" />
     <Compile Include="DataFactory\Seeder.cs" />
     <Compile Include="Implementations\RecommendationEngine.cs" />
     <Compile Include="Interfaces\IRecommendationEngine.cs" />
+    <Compile Include="Models\Application\Category.cs" />
+    <Compile Include="Models\Application\Item.cs" />
+    <Compile Include="Models\Application\Order.cs" />
     <Compile Include="Models\Application\OrderItem.cs" />
+    <Compile Include="Models\Application\Restaurant.cs" />
     <Compile Include="Models\Infrastructure\NamedAuditInfo.cs" />
     <Compile Include="Models\Infrastructure\Identity.cs" />
     <Compile Include="Models\Infrastructure\LookupCategory.cs" />

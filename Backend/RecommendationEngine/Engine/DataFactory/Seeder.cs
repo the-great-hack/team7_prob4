@@ -34,26 +34,51 @@ namespace Engine.DataFactory
 
                 foreach (var seedableModel in _seedableModels)
                 { 
-                    var qualifiedFilePath = Path.Combine(assemblyPath, $"{seedableModel.Name}{FILE_EXTENSION}");
+                    //var qualifiedFilePath = Path.Combine(assemblyPath, $"{seedableModel.Name}{FILE_EXTENSION}");
+                    var qualifiedFilePath = Path.Combine("G:\\Development\\Careem\\SampleData\\", $"{seedableModel.Name}{FILE_EXTENSION}");
                     if (File.Exists(qualifiedFilePath))
                     {
-                        using (var streamReader = new StreamReader(Path.Combine(assemblyPath, $"{seedableModel.Name}{FILE_EXTENSION}")))
+                        using (var streamReader = new StreamReader(qualifiedFilePath))
                         using (var csvReader = new CsvReader(streamReader))
-                        { 
-                            if (typeof(Lookup) == seedableModel)
+                        {
+                            /* below code can be further improved by making GetRecords more generic
+                             like current seedableModel is Item and Datastore is filled with items automatically
+                             without if conditions */
+
+                            if (typeof(Item) == seedableModel)
                             {
-                                var modelContents = csvReader.GetRecords<Lookup>();
+                                DataStore.Instance.Items = csvReader.GetRecords<Item>().ToList();
+                            }
+                            else if (typeof(Restaurant) == seedableModel)
+                            {
+                                DataStore.Instance.Restaurants = csvReader.GetRecords<Restaurant>().ToList();
                             }
                             else if (typeof(OrderItem) == seedableModel)
                             {
-                                var modelContents = csvReader.GetRecords<OrderItem>();
+                                DataStore.Instance.OrderItems = csvReader.GetRecords<OrderItem>().ToList();
                             }
+                            else if (typeof(Lookup) == seedableModel)
+                            {
+                                DataStore.Instance.Lookups = csvReader.GetRecords<Lookup>().ToList();
+                            }
+                            else if (typeof(LookupCategory) == seedableModel)
+                            {
+                                DataStore.Instance.LookupCategories = csvReader.GetRecords<LookupCategory>().ToList();
+                            }
+                            else if (typeof(Order) == seedableModel)
+                            {
+                                DataStore.Instance.Orders = csvReader.GetRecords<Order>().ToList();
+                            }
+                            else if (typeof(Category) == seedableModel)
+                            {
+                                DataStore.Instance.Categories = csvReader.GetRecords<Category>().ToList();
+                            }
+
                         }
                     }
 
                 }
-
-
+                 
                 return true;
             }
             catch (Exception exception)

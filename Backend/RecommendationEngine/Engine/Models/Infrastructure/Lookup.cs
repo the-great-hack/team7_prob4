@@ -9,12 +9,10 @@ namespace Engine.Models.Infrastructure
     [SeedableAttribute]
     public class Lookup : NamedAuditInfo
     {
-        public virtual long LookupCategoryID { get; set; } 
+        public virtual long? LookupCategoryID { get; set; } 
         public virtual string Code { get; set; }
-        public virtual int Value { get; set; }
-        public virtual bool IsDeleted { get; set; }
-        public virtual int SortOrder { get; set; }
-        public virtual LookupCategory LookupCategory { get; set; }
-        public virtual Lookup Parent { get; set; }
+        public virtual int? Value { get; set; }
+        public virtual bool? IsDeleted { get; set; }
+        public virtual int? SortOrder { get; set; } 
     }
 }

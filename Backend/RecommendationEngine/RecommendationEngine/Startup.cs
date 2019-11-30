@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Routing;
+using Engine.Bootstrapping;
 using Microsoft.Owin;
 using Microsoft.Web.Http;
 using Microsoft.Web.Http.Routing;
@@ -22,6 +23,7 @@ namespace RecommendationEngine
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration httpConfiguration = new HttpConfiguration();
+            EngineBootStrapper.Instance.boot();
 
             var constraintResolver = new DefaultInlineConstraintResolver()
             {
