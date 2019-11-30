@@ -15,12 +15,16 @@ import { Text } from '../text';
 
 export const FoodItem = (props) => {
     return (
-        <TouchableOpacity style={styles.CONTAINER}>
+        <TouchableOpacity
+            style={styles.CONTAINER}
+            activeOpacity={0.8}
+            onPress={props.onPress}
+        >
             <ImageBackground
                 source={{ uri: 'https://www.qsrmagazine.com/sites/default/files/styles/story_page/public/phut_0.jpg?itok=Bzo3z1cD' }}
                 style={styles.IMAGE}
             />
-            <Text perset="secondary" text='Pizza' />
+            <Text perset="secondary" text={props.item} />
         </TouchableOpacity>
     );
 }

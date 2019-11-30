@@ -5,13 +5,13 @@ import {
 } from 'react-navigation'
 
 import LocationsScreen from '../Containers/SearchScreen';
-import ShiftsScreen from '../Containers/SettingsScreen';
+import MyOrdersScreen from '../Containers/MyOrdersScreen';
 import DiscoverScreen from '../Containers/DiscoverScreen';
 import { color, palette } from '../Theme';
 const BottomTabNavigator = createMaterialBottomTabNavigator({
     Discover: { screen: DiscoverScreen },
     Search: { screen: LocationsScreen },
-    Orders: { screen: ShiftsScreen },
+    Orders: { screen: MyOrdersScreen },
 }, {
     initialRouteName: 'Discover',
     activeColor: palette.white,

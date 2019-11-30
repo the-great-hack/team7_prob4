@@ -1,9 +1,8 @@
 import React from 'react'
 import {
     View,
-    StyleSheet,
-    SafeAreaView,
-    SectionList
+    FlatList,
+    ActivityIndicator
 } from 'react-native'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
@@ -12,7 +11,8 @@ import { createStructuredSelector } from 'reselect';
 import {
     makeSelectRecommendations,
     makeSelectFetchRecommendationsError,
-    makeSelectFetchRecommendationsSuccess
+    makeSelectFetchRecommendationsSuccess,
+    makeSelectIsFetchingRecommendations
 } from '../../Stores/Discover/Selectors';
 
 import {
@@ -23,27 +23,11 @@ import {
 import { Screen } from '../../Components/screen'
 import { Text } from '../../Components/text'
 import { FoodItem } from '../../Components/food-item';
-
+import { color } from '../../Theme/color';
 import * as styles from './discover.styles';
 
-const DATA = [
-    {
-        title: 'Main dishes',
-        data: ['Pizza', 'Burger', 'Risotto'],
-    },
-    {
-        title: 'Sides',
-        data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
-    },
-    {
-        title: 'Drinks',
-        data: ['Water', 'Coke', 'Beer'],
-    },
-    {
-        title: 'Desserts',
-        data: ['Cheese Cake', 'Ice Cream'],
-    },
-];
+const DATA = ['Pizza', 'Burger', 'Risotto', 'French Fries', 'Onion Rings', 'Fried Shrimps',
+    'Water', 'Coke', 'Beer', 'Cheese Cake', 'Ice Cream'];
 
 class DiscoverScreen extends React.Component {
 
@@ -61,29 +45,40 @@ class DiscoverScreen extends React.Component {
     }
 
     componentDidMount() {
-        this.props.onFetchRecommendations();
+        this.props.onFetchRecommendations(1);
     }
 
     renderItem = ({ item }) => {
-        return <FoodItem />;
+        return <FoodItem
+            item={item}
+            onPress={() => {
+                const { navigate } = this.props.navigation;
+                navigate('ProductDetailsScreen');
+            }}
+        />;
     }
 
     render() {
+        const {
+            isFetchingRecommendations,
+            recommendations
+        } = this.props;
         return (
             <View testID="DiscoverScreen" style={styles.FULL}>
                 <Screen style={styles.CONTAINER} preset="scroll" >
                     <Text style={styles.TITLE} preset="header" text="Discover" />
+                    {isFetchingRecommendations ?
+                        <ActivityIndicator size="large" color={color.primary} />
+                        :
+                        <FlatList
+                            data={DATA}
+                            numColumns={2}
+                            keyExtractor={(item, index) => item + index}
+                            renderItem={this.renderItem}
+                        />
+                    }
                 </Screen>
-                <SectionList
-                    sections={DATA}
-                    stickySectionHeadersEnabled={false}
-                    numColumns={2}
-                    keyExtractor={(item, index) => item + index}
-                    renderItem={this.renderItem}
-                    renderSectionHeader={({ section: { title } }) => (
-                        <Text style={styles.TITLE} text={title} />
-                    )}
-                />
+
             </View>
         )
     }
@@ -94,6 +89,7 @@ const mapStateToProps = createStructuredSelector({
     recommendations: makeSelectRecommendations(),
     recommendationsError: makeSelectFetchRecommendationsError(),
     recommendationsSuccess: makeSelectFetchRecommendationsSuccess(),
+    isFetchingRecommendations: makeSelectIsFetchingRecommendations(),
 });
 
 

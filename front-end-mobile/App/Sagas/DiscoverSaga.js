@@ -14,13 +14,14 @@ import request from '../Services/Request';
 export function* fetchRecommendations(action) {
     // Dispatch a redux action using `put()`
     // @see https://redux-saga.js.org/docs/basics/DispatchingActions.html
-    const requestURL = `${Config.SERVER_BASE_URL}${Config.API_URL}Search/Recommended`;
+    const requestURL = 'https://www.reddit.com/r/javascript.json'//`${Config.SERVER_BASE_URL}${Config.API_URL}Search/Recommended`;
     try {
         // Call our request helper (see 'utils/request')
         const resp = yield call(request, requestURL, {
             method: 'GET',
             body: JSON.stringify(action.payload),
         });
+        debugger;
         yield put(onFetchRecommendationsSuccess(resp));
     } catch (err) {
         console.log("Fetch recommendations error: ", err.errors)
