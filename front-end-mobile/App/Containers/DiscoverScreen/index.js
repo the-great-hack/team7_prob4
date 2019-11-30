@@ -63,6 +63,7 @@ class DiscoverScreen extends React.Component {
             isFetchingRecommendations,
             recommendations
         } = this.props;
+
         return (
             <View testID="DiscoverScreen" style={styles.FULL}>
                 <Screen style={styles.CONTAINER} preset="scroll" >
@@ -71,7 +72,7 @@ class DiscoverScreen extends React.Component {
                         <ActivityIndicator size="large" color={color.primary} />
                         :
                         <FlatList
-                            data={DATA}
+                            data={recommendations}
                             numColumns={2}
                             keyExtractor={(item, index) => item + index}
                             renderItem={this.renderItem}

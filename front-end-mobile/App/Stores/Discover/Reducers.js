@@ -25,17 +25,19 @@ export const fetchRecommendations = (state) => {
 
 
 
-export const fetchRecommendationsSuccess = (state, { response }) =>
-  ({
+export const fetchRecommendationsSuccess = (state, response) => {
+  return ({
     ...state,
     recommendations: response.data,
     registerUserSuccess: true,
     registerUserError: true,
     isFetchingRecommendations: false
   })
+}
 
 
-export const fetchRecommendationsError = (state, { error }) =>
+
+export const fetchRecommendationsError = (state, error) =>
   ({
     ...state,
     registerUserSuccess: false,
