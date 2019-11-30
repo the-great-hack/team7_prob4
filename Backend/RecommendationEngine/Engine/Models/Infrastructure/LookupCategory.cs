@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Engine.Models.Infrastructure
 {
-    [SeedableAttribute]
+    [Seedable]
     public class LookupCategory : NamedAuditInfo
     {
         public virtual string Code { get; set; } 

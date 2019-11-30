@@ -8,10 +8,10 @@ using Engine.Models.Infrastructure;
 namespace Engine.Models.Application
 {
     [Seedable]
-    public class OrderItem : NamedInfo
+    public class Category : Identity
     {
-        public int OrderID { get; set; }
-        public int ItemID { get; set; }
-        public int OrderItemLookupID { get; set; }
+        public string Name { get; set; }
+        public int RestaurantID { get; set; }
+
     }
 }
