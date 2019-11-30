@@ -1,0 +1,3 @@
+export const ON_FETCH_RECOMENDATIONS = 'recommendationEngine/FETCH_RECOMENDATIONS';
+export const ON_FETCH_RECOMENDATIONS_SUCCESS = 'recommendationEngine/FETCH_RECOMENDATIONS_SUCCESS';
+export const ON_FETCH_RECOMENDATIONS_ERROR = 'recommendationEngine/FETCH_PERSONALS_ERROR';
