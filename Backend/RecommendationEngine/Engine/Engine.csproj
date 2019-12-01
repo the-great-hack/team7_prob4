@@ -35,6 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -141,7 +142,9 @@
     <Compile Include="DTOs\RecommendedItemsDTO.cs" />
     <Compile Include="Helpers\Enums.cs" />
     <Compile Include="Implementations\RecommendationProvider.cs" />
+    <Compile Include="Implementations\ReviewSentimentsProvider.cs" />
     <Compile Include="Interfaces\IRecommendationProvider.cs" />
+    <Compile Include="Interfaces\IReviewSentimentsProvider.cs" />
     <Compile Include="Models\Application\Category.cs" />
     <Compile Include="Models\Application\Item.cs" />
     <Compile Include="Models\Application\Order.cs" />
@@ -159,6 +162,15 @@
     <Content Include="Data\recommendation-ratings-test.csv" />
     <Content Include="Data\recommendation-ratings-train.csv" />
     <None Include="packages.config" />
+    <Content Include="SampleData\Category.csv" />
+    <Content Include="SampleData\Item.csv" />
+    <Content Include="SampleData\Lookup.csv" />
+    <Content Include="SampleData\LookupCategory.csv" />
+    <Content Include="SampleData\Order.csv" />
+    <Content Include="SampleData\OrderItem.csv" />
+    <Content Include="SampleData\recommendation-ratings-test.csv" />
+    <Content Include="SampleData\recommendation-ratings-train.csv" />
+    <Content Include="SampleData\Restaurant.csv" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
