@@ -16,7 +16,8 @@ export function* fetchRecommendations(action) {
     const { req } = action;
     // Dispatch a redux action using `put()`
     // @see https://redux-saga.js.org/docs/basics/DispatchingActions.html
-    const requestURL = `${Config.SERVER_BASE_URL}${Config[req]}`;
+    const requestURL = 'https://cd55e367.ngrok.io/items'
+    //`${Config.SERVER_BASE_URL}${Config[req]}`;
     try {
         // Call our request helper (see 'utils/request')
         let resp = yield call(request, requestURL, {
