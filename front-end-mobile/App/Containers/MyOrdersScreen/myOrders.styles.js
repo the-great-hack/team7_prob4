@@ -9,7 +9,7 @@ export const CONTAINER = {
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#e5e5e5',
-    paddingHorizontal: spacing[4],
+    // paddingHorizontal: spacing[4],
 }
 
 const BOLD = {
@@ -24,3 +24,15 @@ export const TITLE = {
     marginBottom: spacing[5],
 }
 
+export const IMAGE_FULL = {
+    width: '100%',
+    height: '100%',
+
+}
+
+export const BUTTON = {
+    position: 'absolute',
+    zIndex: 1,
+    bottom: spacing[2],
+    right: spacing[2]
+}

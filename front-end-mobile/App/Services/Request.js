@@ -29,7 +29,7 @@ function parseJSON(response) {
 
 /* eslint-disable no-nested-ternary */
 
-function getErrorMessage(json) {    
+function getErrorMessage(json) {
     return json.message ? json.message : json.error ? json.error.message : '';
 }
 

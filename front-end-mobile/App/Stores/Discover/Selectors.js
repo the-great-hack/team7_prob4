@@ -9,12 +9,17 @@ export const selectDiscoverDomain = state => {
 
 
 /*--------- Patients ---------------*/
-
+//isFetchingRecommendations
 export const makeSelectRecommendations = () =>
-    createSelector(selectDiscoverDomain, substate => substate.discover && Immutable.asMutable(substate.discover));
+    createSelector(selectDiscoverDomain, substate => {
+        return substate.recommendations && Immutable.asMutable(substate.recommendations)
+    });
 
 export const makeSelectFetchRecommendationsSuccess = () =>
     createSelector(selectDiscoverDomain, substate => substate.fetchRecommendationsSuccess);
 
 export const makeSelectFetchRecommendationsError = () =>
     createSelector(selectDiscoverDomain, substate => substate.fetchPatientsError);
+
+export const makeSelectIsFetchingRecommendations = () =>
+    createSelector(selectDiscoverDomain, substate => substate.isFetchingRecommendations);
