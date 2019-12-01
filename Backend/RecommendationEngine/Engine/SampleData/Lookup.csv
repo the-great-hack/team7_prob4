@@ -1,0 +1,12 @@
+ID,Name,Description,CreatedBy,CreatedOn,ModifiedBy,ModifiedOn,LookupCategoryID,Code,Value,IsDeleted,SortOrder
+1,Small,,,,,,,,,,
+2,Medium,,,,,,,,,,
+3,Large,,,,,,,,,,
+4,Extra Patty,,,,,,,,,,
+5,Extra Mayo,,,,,,,,,,
+6,Extra Spicy,,,,,,,,,,
+7,Hot,,,,,,,,,,
+8,Room Temperature,,,,,,,,,,
+9,Cold,,,,,,,,,,
+10,Toppings,,,,,,,,,,
+11,Thin Crust,,,,,,,,,,

@@ -56,13 +56,21 @@ namespace Engine.Implementations
 
         public IEnumerable<RecommendedItemsDTO> GetMLRecommendations(long userID)
         {
-            MLContext mlContext = new MLContext();
-            (IDataView trainingDataView, IDataView testDataView) = LoadSeededData(mlContext);
-            ITransformer model = BuildAndTrainModel(mlContext, trainingDataView);
-            EvaluateModel(mlContext, testDataView, model);
-            UseModelForSinglePrediction(mlContext, model, userID);
+            try
+            {
+                MLContext mlContext = new MLContext();
+                (IDataView trainingDataView, IDataView testDataView) = LoadSeededData(mlContext);
+                ITransformer model = BuildAndTrainModel(mlContext, trainingDataView);
+                EvaluateModel(mlContext, testDataView, model);
+                return UseModelForSinglePrediction(mlContext, model, userID);
 
-            return null;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
         }
 
         public static (IDataView training, IDataView test) LoadSeededData(MLContext mlContext)
@@ -78,22 +86,22 @@ namespace Engine.Implementations
 
         }
         public static ITransformer BuildAndTrainModel(MLContext mlContext, IDataView trainingDataView)
-        {
-            IEstimator<ITransformer> estimator = mlContext.Transforms.Conversion.MapValueToKey(outputColumnName: "userIdEncoded", inputColumnName: "userId")
-    .Append(mlContext.Transforms.Conversion.MapValueToKey(outputColumnName: "itemIdEncoded", inputColumnName: "itemId"));
-            var options = new MatrixFactorizationTrainer.Options
-            {
-                MatrixColumnIndexColumnName = "userIdEncoded",
-                MatrixRowIndexColumnName = "itemIdEncoded",
-                LabelColumnName = "Label",
-                NumberOfIterations = 20,
-                ApproximationRank = 100
-            };
+        { 
+                IEstimator<ITransformer> estimator = mlContext.Transforms.Conversion.MapValueToKey(outputColumnName: "userIdEncoded", inputColumnName: "userId")
+                    .Append(mlContext.Transforms.Conversion.MapValueToKey(outputColumnName: "itemIdEncoded", inputColumnName: "itemId"));
+                var options = new MatrixFactorizationTrainer.Options
+                {
+                    MatrixColumnIndexColumnName = "userIdEncoded",
+                    MatrixRowIndexColumnName = "itemIdEncoded",
+                    LabelColumnName = "Label",
+                    NumberOfIterations = 20,
+                    ApproximationRank = 100
+                };
 
-            var trainerEstimator = estimator.Append(mlContext.Recommendation().Trainers.MatrixFactorization(options)); 
-            ITransformer model = trainerEstimator.Fit(trainingDataView);
+                var trainerEstimator = estimator.Append(mlContext.Recommendation().Trainers.MatrixFactorization(options));
+                ITransformer model = trainerEstimator.Fit(trainingDataView);
 
-            return model;
+                return model; 
         }
         public static void EvaluateModel(MLContext mlContext, IDataView testDataView, ITransformer model)
         { 
