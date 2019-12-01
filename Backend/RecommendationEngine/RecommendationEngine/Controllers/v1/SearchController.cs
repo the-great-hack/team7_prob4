@@ -24,6 +24,13 @@ namespace RecommendationEngine.Controllers.v1
             return RecommendationProvider.Instance.GetRecommendations();
         }
 
+        [Route("TrainedRecommendations/{userID}")]
+        [HttpGet]
+        public IEnumerable<RecommendedItemsDTO> GetTrainedRecommendations(long userID)
+        {
+            return RecommendationProvider.Instance.GetMLRecommendations(userID);
+        }
+
         public IEnumerable<RecommendedItemsDTO> SimulateAgeFactor()
         {
             return RecommendationProvider.Instance.GetSimulatedData(Enums.SimulationEnum.AgeFactor);
