@@ -7,15 +7,16 @@ using System.Web.Http;
 using Engine.DataFactory;
 using Engine.Models.Infrastructure;
 using Microsoft.Web.Http;
+using RecommendationEngine.Services.Interfaces.v1;
 
 namespace RecommendationEngine.Controllers.v1
 {
     [ApiVersion("1")]
     [RoutePrefix("api/v{version:apiVersion}/Lookups")]
-    public class LookupsController : ApiController
+    public class LookupsController : ApiController, ILookupsController
     { 
         [HttpGet, Route("{id}"), Route("Get")]
-        public IEnumerable<Lookup> GetLookup(int id)
+        public IEnumerable<Lookup> GetLookupByCategory(int id)
         {
             try
             {

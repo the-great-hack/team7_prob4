@@ -141,6 +141,10 @@
       <Project>{06e9293f-4258-4ca2-9c5b-e72397513ce0}</Project>
       <Name>Engine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RecommendationEngine.Services\RecommendationEngine.Services.csproj">
+      <Project>{7E5F0465-4416-4088-9D04-B7D8A613EFB6}</Project>
+      <Name>RecommendationEngine.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

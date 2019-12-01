@@ -81,8 +81,10 @@
     <Compile Include="DataFactory\DataStore.cs" />
     <Compile Include="DataFactory\LookupsData.cs" />
     <Compile Include="DataFactory\Seeder.cs" />
-    <Compile Include="Implementations\RecommendationEngine.cs" />
-    <Compile Include="Interfaces\IRecommendationEngine.cs" />
+    <Compile Include="DTOs\RecommendedItemsDTO.cs" />
+    <Compile Include="Helpers\Enums.cs" />
+    <Compile Include="Implementations\RecommendationProvider.cs" />
+    <Compile Include="Interfaces\IRecommendationProvider.cs" />
     <Compile Include="Models\Application\Category.cs" />
     <Compile Include="Models\Application\Item.cs" />
     <Compile Include="Models\Application\Order.cs" />

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecommendationEngine.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{06E9293F-4258-4CA2-9C5B-E72397513CE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecommendationEngine.Services", "RecommendationEngine.Services\RecommendationEngine.Services.csproj", "{7E5F0465-4416-4088-9D04-B7D8A613EFB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{06E9293F-4258-4CA2-9C5B-E72397513CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06E9293F-4258-4CA2-9C5B-E72397513CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06E9293F-4258-4CA2-9C5B-E72397513CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E5F0465-4416-4088-9D04-B7D8A613EFB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E5F0465-4416-4088-9D04-B7D8A613EFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E5F0465-4416-4088-9D04-B7D8A613EFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E5F0465-4416-4088-9D04-B7D8A613EFB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
