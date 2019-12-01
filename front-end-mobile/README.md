@@ -1,17 +1,9 @@
-![GitHub Release Date](https://img.shields.io/github/release-date/thecodingmachine/react-native-boilerplate)
-![GitHub last commit](https://img.shields.io/github/last-commit/thecodingmachine/react-native-boilerplate)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/thecodingmachine/react-native-boilerplate)
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/thecodingmachine/react-native-boilerplate/latest)
-![GitHub top language](https://img.shields.io/github/languages/top/thecodingmachine/react-native-boilerplate)
-
 # ReactNative Recommendation Engine
 
-This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kickstart a mobile application.
-
-The boilerplate provides **an architecture optimized for building solid cross-platform mobile applications** through separation of concerns between the UI and business logic. It is extremely documented so that each piece of code that lands in your application can be understood and used.
+This project is created for a Hackathon Organized by Careem.
 
 ```
-If you love this boilerplate, give us a star, you will be a ray of sunshine in our lives :)
+If you love this project, give us a star, you will be a ray of sunshine in our lives :)
 ```
 
 ## Architecture
@@ -22,7 +14,6 @@ The driving goal of the architecture of the boilerplate is separation of concern
 
     Presentational components are small components that are concerned with *how things look*. Containers usually define whole application screens and are concerned with *how things work*: they include presentational components and wire everything together.
     
-    If you are interested you can [read more about it here](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
 
 - **State is managed using global [Redux](https://redux.js.org/) stores**.
 
@@ -40,14 +31,14 @@ The driving goal of the architecture of the boilerplate is separation of concern
 
 ## Content
 
-The boilerplate contains:
+The Project contains:
 
 - a [React Native](https://facebook.github.io/react-native/) (v**0.60.5**) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
 - a [clear directory layout](#directory-layout) to provide a base architecture for your application
 - [Redux](https://redux.js.org/) (v4.0.1) to help manage state
 - [Redux Persist](https://github.com/rt2zz/redux-persist) (v5.10.0) to persist the Redux state
 - [Redux Sagas](https://redux-saga.js.org) (v1.0.2) to separate side-effects and logic from state and UI logic
-- [React Navigation](https://reactnavigation.org/) (v3.11.2) with a [`NavigationService`](App/Services/NavigationService.js) to handle routing and navigation in the app, with a splash screen setup by default
+- [React Navigation](https://reactnavigation.org/) (v4.0.1) with a [`NavigationService`](App/Services/NavigationService.js) to handle routing and navigation in the app, with a splash screen setup by default
 - [reduxsauce](https://github.com/infinitered/reduxsauce) (v1.0.1) to facilitate using Redux
 - [axios](https://github.com/axios/axios) to make API calls (v0.19.0)
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
@@ -66,12 +57,6 @@ The boilerplate includes an example (displaying fake user data) from UI componen
 - [`App/Stores`](App/Stores): redux [actions, reducers and stores](https://redux.js.org/basics)
 - [`App/Theme`](App/Theme): base styles for the application
 
-For more information on each directory, click the link and read the directory's README.
-
-## Updates
-
-The boilerplate will follow new React-Native releases as soon as libraries and tools used here are compatible.
-
 ## Requirements
 
 Node 8 or greater is required. Development for iOS requires a Mac and Xcode 9 or up, and will target iOS 9 and up.
@@ -81,14 +66,6 @@ You also need to install the dependencies required by React Native:
 - for [Android development](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-3)
 - for [iOS development](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies)
 
-
-## Using the boilerplate
-
-To create a new project using the boilerplate:
-
-- `git clone https://github.com/this-repo`
-- `cd mobile`
-- install the npm dependencies by running `yarn`
 
 ## Running the project
 
