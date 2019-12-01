@@ -48,9 +48,10 @@ class DiscoverScreen extends React.Component {
         this.props.onFetchRecommendations(1);
     }
 
-    renderItem = ({ item }) => {
+    renderItem = ({ item, index }) => {
         return <FoodItem
             item={item}
+            index={index}
             onPress={() => {
                 const { navigate } = this.props.navigation;
                 navigate('ProductDetailsScreen');
