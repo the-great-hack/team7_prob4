@@ -57,7 +57,7 @@ namespace Engine.Implementations
         public IEnumerable<RecommendedItemsDTO> GetMLRecommendations(long userID)
         {
             MLContext mlContext = new MLContext();
-            (IDataView trainingDataView, IDataView testDataView) = LoadData(mlContext);
+            (IDataView trainingDataView, IDataView testDataView) = LoadSeededData(mlContext);
             ITransformer model = BuildAndTrainModel(mlContext, trainingDataView);
             EvaluateModel(mlContext, testDataView, model);
             UseModelForSinglePrediction(mlContext, model, userID);
@@ -65,7 +65,7 @@ namespace Engine.Implementations
             return null;
         }
 
-        public static (IDataView training, IDataView test) LoadData(MLContext mlContext)
+        public static (IDataView training, IDataView test) LoadSeededData(MLContext mlContext)
         {
             //using hard coded paths for now to access file, logic can be implemented for dynamic paths, if this is hosted as a service, console application on in debug env.
             var trainingDataPath = "G:\\Development\\Careem\\SampleData\\recommendation-ratings-train.csv";
@@ -98,9 +98,7 @@ namespace Engine.Implementations
         public static void EvaluateModel(MLContext mlContext, IDataView testDataView, ITransformer model)
         { 
             var prediction = model.Transform(testDataView);
-            var metrics = mlContext.Regression.Evaluate(prediction, labelColumnName: "Label", scoreColumnName: "Score");
-            Console.WriteLine("Root Mean Squared Error : " + metrics.RootMeanSquaredError.ToString());
-            Console.WriteLine("RSquared: " + metrics.RSquared.ToString());
+            var metrics = mlContext.Regression.Evaluate(prediction, labelColumnName: "Label", scoreColumnName: "Score"); 
 
         }
         public static IEnumerable<RecommendedItemsDTO> UseModelForSinglePrediction(MLContext mlContext, ITransformer model, long userID)
