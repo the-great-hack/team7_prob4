@@ -11,6 +11,7 @@ namespace Engine.Interfaces
     public interface IRecommendationProvider
     {
         IEnumerable<RecommendedItemsDTO> GetRecommendations();
+        IEnumerable<RecommendedItemsDTO> GetMLRecommendations(long userID);
         IEnumerable<RecommendedItemsDTO> GetSimulatedData(SimulationEnum simulationType);
     }
 }
