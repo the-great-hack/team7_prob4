@@ -26,9 +26,6 @@ import { FoodItem } from '../../Components/food-item';
 import { color } from '../../Theme/color';
 import * as styles from './discover.styles';
 
-const DATA = ['Pizza', 'Burger', 'Risotto', 'French Fries', 'Onion Rings', 'Fried Shrimps',
-    'Water', 'Coke', 'Beer', 'Cheese Cake', 'Ice Cream'];
-
 class DiscoverScreen extends React.Component {
 
     constructor(props) {
@@ -45,7 +42,7 @@ class DiscoverScreen extends React.Component {
     }
 
     componentDidMount() {
-        this.props.onFetchRecommendations(1);
+        this.props.onFetchRecommendations(0);
     }
 
     renderItem = ({ item, index }) => {

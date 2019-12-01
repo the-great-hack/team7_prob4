@@ -4,13 +4,13 @@ import {
     createAppContainer
 } from 'react-navigation'
 
-import LocationsScreen from '../Containers/SearchScreen';
+import SearchScreen from '../Containers/SearchScreen';
 import MyOrdersScreen from '../Containers/MyOrdersScreen';
 import DiscoverScreen from '../Containers/DiscoverScreen';
 import { color, palette } from '../Theme';
 const BottomTabNavigator = createMaterialBottomTabNavigator({
     Discover: { screen: DiscoverScreen },
-    Search: { screen: LocationsScreen },
+    Search: { screen: SearchScreen },
     Orders: { screen: MyOrdersScreen },
 }, {
     initialRouteName: 'Discover',

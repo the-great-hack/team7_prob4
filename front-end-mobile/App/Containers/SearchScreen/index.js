@@ -4,7 +4,6 @@ import { PropTypes } from 'prop-types'
 import { View } from 'react-native'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect';
-
 import {
     onFetchRecommendations
 } from '../../Stores/Discover/Actions';
@@ -18,7 +17,9 @@ import * as styles from './search.styles';
 class SearchScreen extends React.Component {
 
     makeLookupCall = (type) => {
-        this.props.onFetchRecommendations(type)
+        this.props.onFetchRecommendations(type);
+        const { navigation } = this.props;
+        navigation.navigate('Discover')
     }
 
     render() {
@@ -29,22 +30,40 @@ class SearchScreen extends React.Component {
                     <Button
                         preset="primary"
                         text="Recommended"
+                        onPress={() => this.makeLookupCall(0)}
+                    />
+                    <Button
+                        preset="primary"
+                        text="Recommended ML"
                         onPress={() => this.makeLookupCall(1)}
                     />
                     <Button
                         preset="primary"
-                        text="Featured"
+                        text="User 1"
+                        onPress={() => this.makeLookupCall(1)}
+                    />
+                    <Button
+                        preset="primary"
+                        text="User 2"
                         onPress={() => this.makeLookupCall(2)}
                     />
                     <Button
                         preset="primary"
-                        text="Popular"
+                        text="User 3"
                         onPress={() => this.makeLookupCall(3)}
                     />
+
                     <Button
-                        preset="primary"
+                        preset="default"
+                        text="Featured"
+                    />
+                    <Button
+                        preset="default"
+                        text="Popular"
+                    />
+                    <Button
+                        preset="default"
                         text="Nearby"
-                        onPress={() => this.makeLookupCall(4)}
                     />
                     <Button
                         preset="default"
