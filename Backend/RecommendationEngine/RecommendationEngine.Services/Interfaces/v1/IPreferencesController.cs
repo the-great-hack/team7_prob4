@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Engine.Interfaces
+namespace RecommendationEngine.Services.Interfaces.v1
 {
-    interface IRecommendationEngine
+    public interface IPreferencesController
     {
     }
 }
