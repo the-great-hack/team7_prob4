@@ -4,7 +4,6 @@ import { PropTypes } from 'prop-types'
 import { View } from 'react-native'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect';
-
 import {
     onFetchRecommendations
 } from '../../Stores/Discover/Actions';
@@ -18,7 +17,9 @@ import * as styles from './search.styles';
 class SearchScreen extends React.Component {
 
     makeLookupCall = (type) => {
-        this.props.onFetchRecommendations(type)
+        this.props.onFetchRecommendations(type);
+        const { navigation } = this.props;
+        navigation.navigate('Discover')
     }
 
     render() {
